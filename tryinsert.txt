@@ -1,0 +1,11 @@
+INSERT INTO users(username, psswrd, email) VALUES (
+	"jilbertvasquez",
+    "vasquez02",
+    "jilbertvasquez@gmail.com"
+);
+
+INSERT INTO comments (username, comment_text, user_id) VALUES (
+	"jilbertvasquez",
+    "this is a comment",
+    1
+);

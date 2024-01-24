@@ -32,8 +32,28 @@ button {
     background-color: blueviolet;
 }
 
-section {
+#update-user {
+    display: flex;
+    flex-direction: column;
+}
+
+#change-container {
     display: flex;
     flex-direction: row;
-    background-color: red;
+}
+
+
+#old {
+    display: flex;
+    flex-direction: column;
+}
+
+#new {
+    display: flex;
+    flex-direction: column;
+}
+
+#update-user button {
+    width: 50%;
+    margin: 10px auto;
 }

@@ -16,20 +16,21 @@
     </form>
 
     <h1>Change Account</h1>
-    <section id = "update-user">
-        <form action="includes/userupdate.inc.php" method="POST">
-            <input type="text" placeholder="Username" name="username">
-            <input type="text" placeholder="Password" name="password">
-            <input type="text" placeholder="Email" name="email">
-            <button id="submit-button">Update</button>
-        </form>
-        <form action="includes/userupdate.inc.php" method="POST">
-            <input type="text" placeholder="Username" name="username">
-            <input type="text" placeholder="Password" name="password">
-            <input type="text" placeholder="Email" name="email">
-            <button id="submit-button">Update</button>
-        </form>
-    </section>
+    <form action="includes/userupdate.inc.php" method="POST" id = "update-user">
+        <div id="change-container">
+            <div id="old">
+                <input type="text" placeholder="Old Username" name="oldusername">
+                <input type="text" placeholder="Old Password" name="oldpassword">
+                <input type="text" placeholder="Old Email" name="oldemail">
+            </div>
+            <div id="new">
+                <input type="text" placeholder="New Username" name="newusername">
+                <input type="text" placeholder="New Password" name="newpassword">
+                <input type="text" placeholder="New Email" name="newemail">
+            </div>
+        </div>
+        <button id="submit-button">Update</button>
+    </form>
 
     <h1>Delete Account</h1>
     <form action="includes/userdelete.inc.php" method="POST">

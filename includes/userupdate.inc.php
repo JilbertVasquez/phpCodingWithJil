@@ -1,9 +1,12 @@
 <?php 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $psswrd = $_POST["password"];
-    $email = $_POST["email"];
+    $oldusername = $_POST["oldusername"];
+    $oldpsswrd = $_POST["oldpassword"];
+    $oldemail = $_POST["oldemail"];
+    $newusername = $_POST["newusername"];
+    $newpsswrd = $_POST["newpassword"];
+    $newemail = $_POST["newemail"];
 
     try {
         require_once "dbh.inc.php";
@@ -12,31 +15,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $stmt = $pdo->prepare($query);
 
-        $stmt->bindParam(":username", $username);
-        $stmt->bindParam(":psswrd", $psswrd);
-        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":username", $oldusername);
+        $stmt->bindParam(":psswrd", $oldpsswrd);
+        $stmt->bindParam(":email", $oldemail);
 
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $user_id = $result["id"];
+        if ($result) {
+            $user_id = $result["id"];
 
-        $stmt = null;
+            $stmt = null;
 
-        $query = "UPDATE users SET username = :username, psswrd = :psswrd, email = :email WHERE id = :id;";
+            $query = "UPDATE users SET username = :username, psswrd = :psswrd, email = :email WHERE id = :id;";
 
-        $stmt = $pdo->prepare($query);
+            $stmtUpdate = $pdo->prepare($query);
 
-        $stmt->bindParam(":username", $username);
-        $stmt->bindParam(":psswrd", $psswrd);
-        $stmt->bindParam(":email", $email);
-        $stmt->bindParam(":id", $user_id);
+            $stmtUpdate->bindParam(":username", $newusername);
+            $stmtUpdate->bindParam(":psswrd", $newpsswrd);
+            $stmtUpdate->bindParam(":email", $newemail);
+            $stmtUpdate->bindParam(":id", $user_id);
 
-        $stmt->execute();
+            $stmtUpdate->execute();
 
-        $pdo = null;
-        $stmt = null;
+            $pdo = null;
+            $stmtUpdate = null;
+        }
+
+        
 
         header("Location: ../index.php");
 

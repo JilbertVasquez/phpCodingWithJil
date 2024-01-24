@@ -13,9 +13,5 @@
         <button id="search-button">Search</button>
     </form>
 
-    <?php
-        var_dump($results);
-    ?>
-
 </body>
 </html>

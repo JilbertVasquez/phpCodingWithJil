@@ -5,7 +5,6 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: blue;
 }
 
 form {
@@ -30,5 +29,11 @@ button {
     text-transform: uppercase;
     margin-top: 10px;
     padding: 5px;
+    background-color: blueviolet;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
     background-color: red;
 }
